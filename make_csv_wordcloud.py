@@ -41,7 +41,7 @@ while True:
 
     # 다음 페이지가 있는지 확인
     if len(data) < 100:
-#     if len(data) == 100:
+    # if len(data) == 100:
         break
 
     # 다음 페이지를 위해 offset 증가
@@ -94,7 +94,6 @@ filtered_df.to_csv('test.txt', index = False)
 # # 나눔고딕 폰트 파일의 경로 지정
 # nanum_gothic_font_path = 'NanumGothic.ttf' # 예시 경로입니다. 실제 경로에 맞게 수정하세요.
 #
-# # 불용어 리스트 만들기
 #
 # wordcloud_directory = 'static/images/wordcloud'
 #
@@ -119,6 +118,8 @@ positive_reviews= ' '.join(positive_reviews)
 # ).generate(positive_reviews)
 # positive_wordcloud.to_file(os.path.join(wordcloud_directory, "positive_wordcloud.jpg"))
 #
+
+# 부정리뷰
 # def color(word,random_state=None,**kwargs):
 #     return 'rgb(255,0,0)' #red
 #
