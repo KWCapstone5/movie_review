@@ -1,5 +1,6 @@
 from konlpy.tag import Okt
 from collections import Counter
+import make_csv_wordcloud
 from ckonlpy.tag import Twitter
 
 import pandas as pd
