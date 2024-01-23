@@ -1,3 +1,4 @@
+#점수분포 보여주는 기능
 import make_csv_wordcloud
 from collections import Counter
 
@@ -11,6 +12,7 @@ count = Counter(ratings)
 # 바 차트를 생성합니다.
 plt.bar(count.keys(), count.values())
 
+#레이블 한글로
 # x축에 레이블을 추가합니다.
 plt.xlabel('rating')
 
@@ -21,7 +23,8 @@ plt.text(-0.1, 0.5, 'Count', rotation=0, va='center', ha='right', transform=plt.
 
 # 차트에 제목을 추가합니다.
 plt.title('ratio')
-# 생성된 그래프를 화면에 출력하고, 내부적으로 그래프를 생성하기 위해 사용했던 메모리를 정리(clear)하는 역할
+# 저장하고
 plt.savefig('plot.png')
+# 생성된 그래프를 화면에 출력하고, 내부적으로 그래프를 생성하기 위해 사용했던 메모리를 정리(clear)하는 역할
 
 plt.show()
