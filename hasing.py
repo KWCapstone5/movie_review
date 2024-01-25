@@ -1,7 +1,34 @@
 # 긍정리뷰에서 특성에 따라서 리뷰 분류
+# 어떤 단어가 많이 나올 수 록 긍정적이게 평가하는가
+
+
+
+
+
+
+
+
+
+
+
+
 # 부정리뷰에서 특성에 따라서 리뷰 분류
+# 어떤 단어가 많이 나올 수 록 부정적이게 평가하는가 부정적인 리뷰에서는 어떤 단어가 많이 나왔을까
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+# test용
 # import os
 #
 # os.chdir('C:/Users/kofk/IdeaProjects/flaskapp/venv/Lib/site-packages/konlpy/java/open-korean-text-2.1.0.jar')

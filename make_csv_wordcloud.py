@@ -40,8 +40,8 @@ while True:
     comments.extend(current_comments)
 
     # 다음 페이지가 있는지 확인
-    if len(data) < 100:
-    # if len(data) == 100:
+    # if len(data) < 100:
+    if len(data) == 100:
         break
 
     # 다음 페이지를 위해 offset 증가
@@ -81,14 +81,17 @@ df_ground_truth["sentiment_predicted"] = predicted_sentiments
 # 정확도 계산 (5점은 무시)
 filtered_df = df_ground_truth[df_ground_truth["rating"] != 5]
 accuracy = np.mean(filtered_df["sentiment_ground_truth"] == filtered_df["sentiment_predicted"])
+# new=(filtered_df["sentiment_ground_truth"] == filtered_df["sentiment_predicted"]).sum()
+# //filtered_df['sentiment_predicted'].sum()
 print(accuracy)
+print(filtered_df['sentiment_predicted'].sum())
 
 
 # 결과 DataFrame을 CSV 파일로 저장
 filtered_df.to_csv('data/ground_truth_and_predictions_electra.csv', index=False, encoding='utf-8-sig')
 
-# 결과를 csv파일로 저장
-filtered_df.to_csv('test.txt', index = False)
+# 결과를 text파일로 저장
+# filtered_df.to_csv('test.txt', index = False)
 #
 #
 # # 나눔고딕 폰트 파일의 경로 지정
