@@ -65,7 +65,7 @@ predicted_sentiments = []
 for comment in tqdm(comments):
     #여기를 고치는게 좋을듯  숫자도 받을 수 있게
     #숫자 한글만 냅두고 나머지는 삭제
-    new_sentence = re.sub(r'[^ㄱ-ㅎㅏ-ㅣ가-힣0-9 ]', '', comment["comment"])
+    new_sentence = re.sub(r'[^가-힣0-9 ]', '', comment["comment"])
     new_sentence = tokenizer(new_sentence, return_tensors='pt', truncation=True, padding=True)
     with torch.no_grad():
         outputs = model(**new_sentence)
