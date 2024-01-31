@@ -13,7 +13,9 @@ import make_csv_wordcloud
 voc = make_csv_wordcloud.positive_reviews
 okt_pos = Okt().pos(voc, norm=True,stem=True)    # 형태소 분석
 words = [x for x, y in okt_pos if y in ['Noun']  ]  # 명사만 추출
-words=[x for x in words if len(x)>1] # 한 글자 이상만
+lst=['영화','관람']# 불용어 넣어서 사용 ex)영화제목
+words=[x for x in words if len(x)>1 ] # 한 글자 이상만
+words = [x for x in words if x not in lst ]
 count = Counter(words).most_common(10)   # 빈도수 기반
 print(count)
 
