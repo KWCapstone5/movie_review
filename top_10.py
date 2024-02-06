@@ -11,7 +11,7 @@ import make_csv_wordcloud
 #불용어 정하기 영화제목 등
 # 긍정리뷰
 voc = make_csv_wordcloud.positive_reviews
-okt_pos = Okt().pos(voc, norm=True,stem=True)    # 형태소 분석
+okt_pos = Okt().pos(voc, norm=True)    # 형태소 분석
 words = [x for x, y in okt_pos if y in ['Noun']  ]  # 명사만 추출
 lst=['영화','관람']# 불용어 넣어서 사용 ex)영화제목
 words=[x for x in words if len(x)>1 ] # 한 글자 이상만
