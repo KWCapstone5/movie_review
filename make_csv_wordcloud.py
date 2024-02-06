@@ -105,8 +105,10 @@ filtered_df.to_csv('data/ground_truth_and_predictions_electra.csv', index=False,
 # # df 형태는 기본적으로 object라서
 positive_reviews = df_ground_truth[df_ground_truth["sentiment_predicted"] == 1]["comment"]
 # 그냥하면 안되고 문자열 형식으로 바꿔주고 난 다음에 생성가능
-positive_reviews= ' '.join(positive_reviews)
-#
+# positive_reviews= ' '.join(positive_reviews)
+# print(positive_reviews)
+# positive_reviews
+
 # positive_wordcloud = WordCloud(
 #     font_path=nanum_gothic_font_path,
 #     width=800,
