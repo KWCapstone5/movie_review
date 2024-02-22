@@ -40,8 +40,8 @@ while True:
     comments.extend(current_comments)
 
     # 다음 페이지가 있는지 확인
-    # if len(data) < 100:
-    if len(data) == 100:
+    if len(data) < 100:
+    # if len(data) == 100:
         break
 
     # 다음 페이지를 위해 offset 증가
@@ -104,10 +104,12 @@ filtered_df.to_csv('data/ground_truth_and_predictions_electra.csv', index=False,
 #     return 'rgb(0,0,255)' #blue
 # # df 형태는 기본적으로 object라서
 positive_reviews = df_ground_truth[df_ground_truth["sentiment_predicted"] == 1]["comment"]
+#   hashong.py에서 사용
+positive_review_forhashing = df_ground_truth[df_ground_truth["sentiment_predicted"] == 1]["comment"]
+
 # 그냥하면 안되고 문자열 형식으로 바꿔주고 난 다음에 생성가능
-# positive_reviews= ' '.join(positive_reviews)
+positive_reviews= ' '.join(positive_reviews)
 # print(positive_reviews)
-# positive_reviews
 
 # positive_wordcloud = WordCloud(
 #     font_path=nanum_gothic_font_path,
