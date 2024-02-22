@@ -10,6 +10,7 @@ from collections import Counter
 import make_csv_wordcloud
 #불용어 정하기 영화제목 등
 # 긍정리뷰
+# precondition: 리뷰가 문자열형태로 전달되어야함
 voc = make_csv_wordcloud.positive_reviews
 okt_pos = Okt().pos(voc, norm=True)    # 형태소 분석
 words = [x for x, y in okt_pos if y in ['Noun']  ]  # 명사만 추출
