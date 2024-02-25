@@ -1,4 +1,4 @@
-
+# 카테고리화해주는 작업
 import ahocorasick
 #
 from konlpy.tag import Okt
