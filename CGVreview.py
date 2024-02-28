@@ -34,9 +34,6 @@ def get_movie_reviews(url, page_num = 10):
             page_a.click()
             time.sleep(2)
 
-            writers = wd.find_elements(By.CLASS_NAME, 'writer-name')
-            writer_list += [writer.text for writer in writers]
-
             reviews = wd.find_elements(By.CLASS_NAME, 'box-comment')
             review_list += [ review.text for review in reviews]
 
@@ -49,14 +46,15 @@ def get_movie_reviews(url, page_num = 10):
                 time.sleep(1)
         except NoSuchElementException:
             break
-
-    movie_review_df = pd.DataFrame({'Writer' : writer_list,
-                                    'Review' : review_list,
-                                    'Date' : date_list})
+    # 사용자 이름은 필요없음
+    movie_review_df = pd.DataFrame({
+                                    'Review' : review_list
+                                    })
     
     wd.close()
     return movie_review_df
+#url입력말고 이름으로 입력하게 하고싶으면?
 
 url = 'http://www.cgv.co.kr/movies/detail-view/?midx=87554'
 movie_review_df = get_movie_reviews(url, 10) # 리뷰 받을 페이지 숫자
-movie_review_df.to_csv('cgvreviews.csv', index=False)
+movie_review_df.to_csv('data/cgvreviews.csv', index=False)
