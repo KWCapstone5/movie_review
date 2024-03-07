@@ -3,7 +3,7 @@ import os
 import requests
 import urllib.parse
 import re
-
+# weekly_box_office_details에서 읽어온 정보를
 # 네이버 Open API 설정
 client_id = "l8XfKFIRldZyQp_IfHja"
 client_secret = "7A2VMQtKAj"

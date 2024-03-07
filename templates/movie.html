@@ -48,6 +48,7 @@
 
       <div class="MovieChoice" style="width: 1920px; height: 4200px; position: relative;">
           <!-- 기존 HTML 콘텐츠 -->
+      </div>
   <div class="MovieChoice" style="width: 1920px; height: 4200px; position: relative; background: #000A23">
     <div class="Rank" style="left: 320px; top: 132px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">콘텐츠 통합 1위 · 박스오피스 1위</div>
     <img class="21" style="width: 240px; height: 340px; left: 320px; top: 200px; position: absolute" src="static\images\movies\1_범죄도시2.jpg" />
@@ -164,7 +165,8 @@
     pageInfo.textContent = `현재 페이지: ${currentPage} / 전체 페이지: ${maxPage}`;
 }
 
-    function changePage(reviewType, direction) {
+    function changePage(reviewType, direction)
+    {
         var reviews = document.querySelectorAll('#' + reviewType + '-reviews .review-container');
         var maxPage = Math.ceil(reviews.length / reviewsPerPage);
     
@@ -192,6 +194,8 @@
         <!-- 기타 HTML 콘텐츠 -->
     
     </div>
+
+
 
 </body>
 </html>
