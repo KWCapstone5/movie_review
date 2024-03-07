@@ -143,7 +143,7 @@ filtered_df.to_csv('data/metadata.csv', index=False, encoding='utf-8-sig')
 
 
 # 나눔고딕 폰트 파일의 경로 지정
-nanum_gothic_font_path = 'NanumGothic.ttf' # 예시 경로입니다. 실제 경로에 맞게 수정하세요.
+nanum_gothic_font_path = 'NanumGothic.ttf'
 
 
 wordcloud_directory = 'static/images/wordcloud'

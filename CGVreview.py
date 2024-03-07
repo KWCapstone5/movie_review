@@ -23,7 +23,7 @@ def get_movie_reviews(url, page_num = 10):
     wd = webdriver.Chrome()
     wd.get(url)
 
-    writer_list = [] # 작성자
+    # writer_list = [] # 작성자
     review_list = [] # 리뷰
     date_list = [] # 작성일
 
