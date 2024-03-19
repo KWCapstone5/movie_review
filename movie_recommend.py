@@ -48,7 +48,7 @@ title=input('영화제목을 입력하세요: ')
 # 사용자가 입력한 영화 제목에 해당하는 행을 선택해서 그에 맞는 인덱스를 찾음
 new=((df[df['title'] == title]).index[0])
 
-a=list(get_recommendations(new, 5))
+a=list(get_recommendations(new, 4))
 # 추천된 영화제목만 가져와서 처리
 print(a)
 
