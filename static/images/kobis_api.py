@@ -41,7 +41,7 @@ def fetch_daily_box_office(api_key, target_date):
     return movies
 
 # API 키와 대상 날짜 설정
-api_key = '2d27705d955e1888ad6d1a54594f3560&'
+api_key = ''
 yesterday = datetime.now() - timedelta(days=1)
 target_date = yesterday.strftime("%Y%m%d")
 
