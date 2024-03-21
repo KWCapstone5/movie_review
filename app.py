@@ -48,9 +48,23 @@ def movie_info():
 
     return render_template('movie_info.html', movies=movies)
 
+def get_movie_details(movie_name):
+    movie_details = {}
+    with open('static/images/updated_weekly_box_office_details.csv', mode='r', encoding='utf-8') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        
+        for row in csv_reader:
+            print(row['title'] )
+            print(movie_name)
+            if row['title'] == movie_name:
+                movie_details = row
+                break
+    return movie_details
+
 @app.route('/<movie_name>')
 def movie(movie_name):
     movie_folder = f'static/images/movies/{movie_name}'
+    movie_details = get_movie_details(movie_name)
     cast_info = []
     actor_image_folder = os.path.join(movie_folder, 'actors')
     if os.path.exists(actor_image_folder):
@@ -60,14 +74,16 @@ def movie(movie_name):
                 image_url = os.path.join(actor_image_folder, actor_image).replace('\\', '/')
                 cast_info.append({"name": actor_name, "image_url": image_url})
 
-    # 포스터 및 감독 이미지는 예시로 하나만 처리합니다.
-    # 실제 애플리케이션에서는 필요에 따라 다른 로직을 적용해야 할 수 있습니다.
     poster_image_url = ""
     poster_folder = os.path.join(movie_folder, 'poster')
     if os.listdir(poster_folder):
         poster_image_url = os.path.join(poster_folder, os.listdir(poster_folder)[0]).replace('\\', '/')
 
-    return render_template('movie.html', movie_name=movie_name, cast_info=cast_info, poster_image_url=poster_image_url)
+    return render_template('movie.html', 
+                           movie_name=movie_name, 
+                           cast_info=cast_info, 
+                           poster_image_url=poster_image_url,
+                           movie_details=movie_details)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

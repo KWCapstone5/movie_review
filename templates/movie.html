@@ -46,18 +46,18 @@
 </head>
 <body style="background: #000A23; color: white; font-family: Inter;">
 
-      <div class="MovieChoice" style="width: 1920px; height: 4200px; position: relative;">
-          <!-- 기존 HTML 콘텐츠 -->
-      </div>
-  <div class="MovieChoice" style="width: 1920px; height: 4200px; position: relative; background: #000A23">
-    <div class="Rank" style="left: 320px; top: 132px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">콘텐츠 통합 1위 · 박스오피스 1위</div>
-    <img class="21" style="width: 240px; height: 340px; left: 320px; top: 200px; position: absolute" src="static\images\movies\1_범죄도시2.jpg" />
-    <div class="Name_kor" style="left: 600px; top: 216px; position: absolute; text-align: center; color: white; font-size: 36px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">범죄도시2</div>
-    <div class="Name_en" style="left: 600px; top: 267px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">the Roundup · 2022</div>
-    <div style="left: 600px; top: 393px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">작품 정보</div>
+    <div class="MovieChoice" style="width: 1920px; height: 4200px; position: relative;">
+        <!-- 기존 HTML 콘텐츠 -->
+    <div class="MovieChoice" style="width: 1920px; height: 4200px; position: relative; background: #000A23">
+    <div class="Rank" style="left: 320px; top: 132px; position: absolute; text-align: center; color: white; font-size: 40px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">{{ movie_name }}</div>
+    <img class="21" style="width: 240px; height: 340px; left: 320px; top: 200px; position: absolute" img src="{{ poster_image_url }}" alt="{{ movie_title }}">
+    <div class="Name_kor" style="left: 600px; top: 216px; position: absolute; text-align: center; color: white; font-size: 36px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">감독: {{ movie_details['director'] }}</div>
+    <div class="Name_en" style="left: 600px; top: 267px; position: absolute; text-align: center; color: white; font-size: 20px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word"> {{ movie_details['genre'] }}· {{ movie_details['release_date'] }}</div>
+    <div style="left: 600px; top: 343px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">작품 정보</div>
     <div style="left: 340px; top: 3150px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">모든 리뷰</div>
-    <div class="scripts" style="width: 980px; height: 200px; left: 600px; top: 469px; position: absolute; color: white; font-size: 20px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">“느낌 오지? 이 놈 잡아야 하는 거”<br/><br/>가리봉동 소탕작전 후 4년 뒤, 금천서 강력반은 베트남으로 도주한 용의자를 인도받아 오라는 미션을 받는다.<br/>괴물형사 ‘마석도’(마동석)와 ‘전일만’(최귀화) 반장은 현지 용의자에게서 수상함을 느끼고, 그의 뒤에 무자비한 악행을 벌이는 ‘강해상’(손석구)이 있음을 알게 된다.<br/>‘마석도’와 금천서 강력반은 한국과 베트남을 오가며 역대급 범죄를 저지르는 ‘강해상’을 본격적으로 쫓기 시작하는데...<br/><br/>나쁜 놈들 잡는 데 국경 없다! 통쾌하고 화끈한 범죄 소탕 작전이 다시 펼쳐진다!</div>
-    <!-- 출연진 정보 및 이미지 생성 -->
+    <div class="scripts" style="width: 980px; height: 200px; left: 600px; top: 419px; position: absolute; color: white; font-size: 20px; font-family: Inter; font-weight: 600; text-transform: capitalize; word-wrap: break-word">{{ movie_details['plot'] }}</p></div>
+    <!-- 출연진 정보 및 이미지 생성 -->        
+        
     <div class="cast-info">
         {% for actor in cast_info %}
         <div class="actor" style="position: absolute; left: {{ 340 + (loop.index - 1) % 5 * 300 }}px; top: {{ (loop.index - 1) // 5 * 230 + 800 }}px;">
@@ -79,8 +79,7 @@
     
     <!-- JavaScript 코드를 추가하여 퍼센트 업데이트 -->
     <script>
-        function updatePercentage()
-        {
+        function updatePercentage() {
             // Flask 앱에서 전달한 퍼센트 값을 가져와서 엘리먼트에 업데이트
             var negativePercentage = {{ negative_percentage }};
             var positivePercentage = {{ positive_percentage }};
@@ -165,8 +164,7 @@
     pageInfo.textContent = `현재 페이지: ${currentPage} / 전체 페이지: ${maxPage}`;
 }
 
-    function changePage(reviewType, direction)
-    {
+    function changePage(reviewType, direction) {
         var reviews = document.querySelectorAll('#' + reviewType + '-reviews .review-container');
         var maxPage = Math.ceil(reviews.length / reviewsPerPage);
     
@@ -194,8 +192,6 @@
         <!-- 기타 HTML 콘텐츠 -->
     
     </div>
-
-
 
 </body>
 </html>

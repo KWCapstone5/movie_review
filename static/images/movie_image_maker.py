@@ -3,16 +3,18 @@ import os
 import requests
 import urllib.parse
 import re
-# weekly_box_office_details에서 읽어온 정보를
+import requests
+
+
 # 네이버 Open API 설정
-client_id = "l8XfKFIRldZyQp_IfHja"
-client_secret = "7A2VMQtKAj"
+client_id = ""
+client_secret = ""
 
 # CSV 파일 경로
-csv_file_path = './weekly_box_office_details.csv'
+csv_file_path = './static/images/weekly_box_office_details.csv'
 
 # 이미지 저장 경로 설정
-image_save_path = './movie_images'
+image_save_path = './movies'
 
 # 유효하지 않은 파일/폴더 이름 문자 제거 또는 대체 함수
 def sanitize_filename(filename):
