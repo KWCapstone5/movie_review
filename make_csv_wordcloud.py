@@ -10,7 +10,7 @@ from wordcloud import WordCloud
 
 
 
-#리뷰 csv파일을 읽어서 데이터프레임으로 만들기
+#리뷰 csv파일을 읽어서 데이터프레임으로 만들기 리뷰별
 
 df_ground_truth = pd.read_csv('data/CGVreviews.csv')
 
@@ -129,11 +129,12 @@ for idx, i in enumerate(voc):
 
 
 # #    확인
-print(story_sorted)
-print(actor_sorted)
-print(directing_sorted)
-# 생성된 데이터프레임 확인
-print(filtered_df.head())
+# print(story_sorted)
+# print(actor_sorted)
+# print(directing_sorted)
+# # 생성된 데이터프레임 확인
+# print(filtered_df.head())
+
 #  데이터프레임을 CSV 파일로 저장
 filtered_df.to_csv('data/metadata.csv', index=False, encoding='utf-8-sig')
 

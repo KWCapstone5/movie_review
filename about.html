@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function btnActive()  {
+            const target = document.getElementById('target_btn');
+            target.disabled = false;
+        }
+
+        function btnDisabled()  {
+            const target = document.getElementById('target_btn');
+            target.disabled = true;
+        }
+    </script>
+</head>
+<body>
+<input id='target_btn' type='button' value='버튼'/>
+
+<div>'활성화' 또는 '비활성화' 버튼을 클릭하세요</div>
+<div>
+    <input type='button'
+           value='활성화'
+           onclick='btnActive()'/>
+    <input type='button'
+           value='비활성화'
+           onclick='btnDisabled()'/>
+</div>
+
+
+</body>
+</html>
+
+{##}
+{#<div>'활성화' 또는 '비활성화' 버튼을 클릭하세요</div>#}
+{#<div>#}
+{#    <input type='button'#}
+{#           value='활성화'#}
+{#           onclick='btnActive()'/>#}
+{#    <input type='button'#}
+{#           value='비활성화'#}
+{#           onclick='btnDisabled()'/>#}
+{#</div>#}
+{##}
+{#<form method="post" enctype="multipart/form-data">#}
+{#    <div>#}
+{#        <label for="file">Choose file to upload</label>#}
+{#        <input type="file" id="file" name="file" multiple />#}
+{#    </div>#}
+{#    <div>#}
+{#        <button>Submit</button>#}
+{#    </div>#}
+{#</form>#}
+
+
+{#<button class="text-red hover:before:bg-redborder-red-500 relative h-[50px] w-40 overflow-hidden border border-red-500 bg-white px-3 text-red-500 shadow-2xl transition-all before:absolute before:bottom-0 before:left-0 before:top-0 before:z-0 before:h-full before:w-0 before:bg-red-500 before:transition-all before:duration-500 hover:text-white hover:shadow-red-500 hover:before:left-0 hover:before:w-full"><span class="relative z-10">Swipe</span></button>#}
+var $body = document.querySelector('body');
+
+// Methods/polyfills.
+!function(){function t(t){this.el=t;for(var n=t.className.replace(/^\s+|\s+$/g,"").split(/\s+/),i=0;i<n.length;i++)e.call(this,n[i])}function n(t,n,i){Object.defineProperty?Object.defineProperty(t,n,{get:i}):t.__defineGetter__(n,i)}if(!("undefined"==typeof window.Element||"classList"in document.documentElement)){var i=Array.prototype,e=i.push,s=i.splice,o=i.join;t.prototype={add:function(t){this.contains(t)||(e.call(this,t),this.el.className=this.toString())},contains:function(t){return-1!=this.el.className.indexOf(t)},item:function(t){return this[t]||null},remove:function(t){if(this.contains(t)){for(var n=0;n<this.length&&this[n]!=t;n++);s.call(this,n,1),this.el.className=this.toString()}},toString:function(){return o.call(this," ")},toggle:function(t){return this.contains(t)?this.remove(t):this.add(t),this.contains(t)}},window.DOMTokenList=t,n(Element.prototype,"classList",function(){return new t(this)})}}();
+
+window.canUse=function(p){if(!window._canUse)window._canUse=document.createElement("div");var e=window._canUse.style,up=p.charAt(0).toUpperCase()+p.slice(1);return p in e||"Moz"+up in e||"Webkit"+up in e||"O"+up in e||"ms"+up in e};
+
+(function(){if("addEventListener"in window)return;window.addEventListener=function(type,f){window.attachEvent("on"+type,f)}})();
+
+window.addEventListener('load', function() {
+window.setTimeout(function() {
+$body.classList.remove('is-preload');
+}, 100);
+});
+
+(function() {
+var settings = {
+images: {
+'images/bg01.jpg': 'center',
+'images/bg02.jpg': 'center',
+'images/bg03.jpg': 'center'
+},
+delay: 6000
+};
+
+var pos = 0, lastPos = 0,
+$wrapper, $bgs = [], $bg,
+k, v;
+
+$wrapper = document.createElement('div');
+$wrapper.id = 'bg';
+$body.appendChild($wrapper);
+
+for (k in settings.images) {
+$bg = document.createElement('div');
+$bg.style.backgroundImage = 'url("' + k + '")';
+$bg.style.backgroundPosition = settings.images[k];
+$wrapper.appendChild($bg);
+
+$bgs.push($bg);
+}
+
+$bgs[pos].classList.add('visible');
+$bgs[pos].classList.add('top');
+
+if ($bgs.length == 1 || !canUse('transition'))
+return;
+
+window.setInterval(function() {
+lastPos = pos;
+pos++;
+
+if (pos >= $bgs.length)
+pos = 0;
+
+$bgs[lastPos].classList.remove('top');
+$bgs[pos].classList.add('visible');
+$bgs[pos].classList.add('top');
+
+window.setTimeout(function() {
+$bgs[lastPos].classList.remove('visible');
+}, settings.delay / 2);
+
+}, settings.delay);
+
+})();
+
+
+import pandas as pd
+
+# 기존 CSV 파일 읽기
+df = pd.read_csv('your_file.csv')
+
+# 새로운 데이터 생성
+new_data = pd.DataFrame([
+['value1', 'value2', 'value3', 'value4'],  # 첫 번째 행의 데이터
+['value5', 'value6', 'value7', 'value8'],  # 두 번째 행의 데이터
+# 필요한 만큼 행을 추가하세요.
+], columns=df.columns) # columns 인자에 기존 DataFrame의 칼럼을 지정
+
+# 새로운 데이터를 기존 DataFrame에 추가
+df = pd.concat([df, new_data], ignore_index=True)
+
+# DataFrame을 다시 CSV 파일로 저장
+df.to_csv('your_file.csv', index=False)
+{#kmdb_api_key = ''# 실제 API 키로 교체해야 함#}
+{#영화배우 이미지 크롤링#}
+{#binary = '/Users/geonukkim/Downloads/chromedriver'#}

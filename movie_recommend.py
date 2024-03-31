@@ -39,7 +39,7 @@ def get_recommendations(index, size, cosine_sim=cosine_sim):
     sim_scores = sim_scores[1:size+1]
     movie_indices = [i[0] for i in sim_scores]
     score = [i[1] for i in sim_scores]
-# 이는 'movieCode' 열의 특정 행들만을 선택하여 반환합니다
+    # 이는 'movieCode' 열의 특정 행들만을 선택하여 반환합니다
     return df['title'].iloc[movie_indices]
 
 # 지금은 무비코드가 아닌 인덱스 기반으로 작동되고 있음

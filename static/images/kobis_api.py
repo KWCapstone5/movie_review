@@ -2,6 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 from datetime import datetime, timedelta
+import os
+import re
+
+# 유효하지 않은 파일/폴더 이름 문자 제거 또는 대체 함수
+def sanitize_filename(filename):
+    return re.sub(r'[\\/*?:"<>|]', '', filename)  # 유효하지 않은 문자를 제거
 
 # 영화 상세 정보 조회 함수
 def get_movie_info(api_key, movie_id):
@@ -12,10 +18,10 @@ def get_movie_info(api_key, movie_id):
     # 영화 기본 정보 추출
     movie_info = {
         'movieCd': movie_id,
-        'title': soup.find('movieNm').text,
+        'title': sanitize_filename(soup.find('movieNm').text),
         'release_date': soup.find('openDt').text,
-        'director': soup.find('director').find('peopleNm').text if soup.find('director') else 'Unknown',
-        'actors': ", ".join([actor.find('peopleNm').text for actor in soup.find_all('actor')[:10]])
+        'director': sanitize_filename(soup.find('director').find('peopleNm').text) if soup.find('director') else 'Unknown',
+        'actors': ", ".join([sanitize_filename(actor.find('peopleNm').text) for actor in soup.find_all('actor')[:10]])
     }
     
     return movie_info
@@ -53,3 +59,5 @@ with open(csv_file_path, 'w', newline='', encoding='utf-8') as file:
         writer.writerow(movie)
 
 print(f"Data saved to {csv_file_path}")
+# pip install -r requirements.txt
+

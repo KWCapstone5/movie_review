@@ -55,6 +55,6 @@ def get_movie_reviews(url, page_num = 10):
     return movie_review_df
 #url입력말고 이름으로 입력하게 하고싶으면?
 
-url = 'http://www.cgv.co.kr/movies/detail-view/?midx=87554'
+url = 'http://www.cgv.co.kr/movies/detail-view/?midx=87947'
 movie_review_df = get_movie_reviews(url, 10) # 리뷰 받을 페이지 숫자
 movie_review_df.to_csv('data/cgvreviews.csv', index=False)
